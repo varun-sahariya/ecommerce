@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider from "react-slick";
 
-const testmonialData = [
+const testimonialData = [
   {    
     id: 1,
     name: "John Doe",
@@ -35,7 +35,7 @@ const testmonialData = [
 ];
 
 const Testimonial = () => {
-  var settings = {
+  const settings = {
     dots: true,
     infinite: true,
     speed: 500,
@@ -47,7 +47,6 @@ const Testimonial = () => {
     cssEase: "linear",
     pauseOnHover: true,
     pauseOnFocus: true,
-
     responsive: [
       { breakpoint: 1024, settings: { slidesToShow: 2, slidesToScroll: 1 } },
       { breakpoint: 600, settings: { slidesToShow: 1, slidesToScroll: 1 } },
@@ -55,34 +54,36 @@ const Testimonial = () => {
   };
 
   return (
-    <div>
-      <div className='text-center mb-10 max-h-[600px] mx-auto'>
-        <p data-aos="fade-up" className='text-sm text-primary'>
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="text-center mb-10">
+        <p data-aos="fade-up" className="text-sm text-primary">
           What our customers have to say
         </p>
-        <h1 data-aos="fade-up" className='text-3xl font-bold'>
+        <h1 data-aos="fade-up" className="text-3xl font-bold">
           Testimonials
         </h1>
-        <p data-aos="fade-up" className='text-xs text-gray-400'>
+        <p data-aos="fade-up" className="text-xs text-gray-400">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis inventore aliquid quam vitae placeat maiores.
         </p>
       </div>
 
       <div data-aos="zoom-in">
         <Slider {...settings}>
-          {testmonialData.map((data) => (
-            <div key={data.id} className='mb-6'>
-              <div className="flex flex-col gap-4 shadow-lg py-8 px-6 mx-4 rounded-xl dark:bg-gray-800 bg-primary/10 relative">
-                <div className='mb-4'>
-                  <img src={data.image} alt={`${data.name}'s testimonial`} className='rounded-full w-20 h-20' />
+          {testimonialData.map((data) => (
+            <div key={data.id} className="mb-6 px-2">
+              <div className="flex flex-col items-center gap-4 shadow-lg py-6 px-6 rounded-xl dark:bg-gray-800 bg-primary/10 relative max-w-xs mx-auto">
+                <div className="mb-4">
+                  <img src={data.image} alt={`${data.name}'s testimonial`} className="rounded-full w-16 h-16 sm:w-20 sm:h-20" />
                 </div>
-                <div className='flex flex-col items-center gap-4'>
-                  <div className='space-y-3'>
-                    <p className='text-xs text-gray-500'>{data.text}</p>
-                    <h1 className='text-xl font-bold text-black/80 dark:text-light'>{data.name}</h1>
-                  </div>
+                <div className="text-center space-y-3">
+                  <p className="text-sm text-gray-600 sm:text-gray-500">
+                    {data.text}
+                  </p>
+                  <h1 className="text-lg sm:text-xl font-bold text-black/80 dark:text-light">
+                    {data.name}
+                  </h1>
                 </div>
-                <p className='text-black/20 text-9xl font-serif absolute top-0 right-0'>
+                <p className="text-black/10 text-8xl font-serif absolute top-0 right-2 opacity-20">
                   ''
                 </p>
               </div>
@@ -95,4 +96,3 @@ const Testimonial = () => {
 };
 
 export default Testimonial;
-
